@@ -1,0 +1,136 @@
+{
+  "plan": {
+    "implementation": "110f2c396a1f3998",
+    "seed": 42,
+    "batch_size": 128,
+    "num_workers": 2,
+    "weight_decay": 0.0001,
+    "experiments": [
+      {
+        "name": "mlp_lr_1e3",
+        "kind": "mlp",
+        "lr": 0.001,
+        "epochs": 12,
+        "size": 64
+      },
+      {
+        "name": "mlp_lr_3e4",
+        "kind": "mlp",
+        "lr": 0.0003,
+        "epochs": 12,
+        "size": 64
+      },
+      {
+        "name": "cnn_small",
+        "kind": "cnn",
+        "width": 16,
+        "lr": 0.001,
+        "epochs": 12,
+        "size": 64
+      },
+      {
+        "name": "cnn_wide",
+        "kind": "cnn",
+        "width": 32,
+        "lr": 0.001,
+        "epochs": 12,
+        "size": 64
+      },
+      {
+        "name": "mobilenet_frozen",
+        "kind": "frozen",
+        "lr": 0.001,
+        "epochs": 8,
+        "size": 128
+      },
+      {
+        "name": "mobilenet_finetuned",
+        "kind": "finetune",
+        "lr": 1e-05,
+        "epochs": 5,
+        "size": 128
+      }
+    ],
+    "data_url": "https://huggingface.co/datasets/torchgeo/eurosat/resolve/c877bcd43f099cd0196738f714544e355477f3fd/EuroSAT.zip",
+    "archive_md5": "c8fa014336c82ac7804f0398fcb19387",
+    "split_sha256": "a78a674772b554e5695578583d014d95e2361d41380e59f0fe80aff2e3e8fca2",
+    "classes": [
+      "AnnualCrop",
+      "Forest",
+      "HerbaceousVegetation",
+      "Highway",
+      "Industrial",
+      "Pasture",
+      "PermanentCrop",
+      "Residential",
+      "River",
+      "SeaLake"
+    ],
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "weights": "MobileNet_V2_Weights.IMAGENET1K_V2",
+    "environment": {
+      "python": "3.13.15",
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "cuda": "12.8",
+      "device": "Tesla T4",
+      "amp": true,
+      "packages": {
+        "torch": "2.11.0+cu128",
+        "torchvision": "0.26.0+cu128",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "matplotlib": "3.10.0",
+        "Pillow": "11.3.0"
+      }
+    }
+  },
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "cuda": "12.8",
+    "device": "Tesla T4",
+    "amp": true,
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "numpy": "2.1.3",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.6.1",
+      "matplotlib": "3.10.0",
+      "Pillow": "11.3.0"
+    }
+  },
+  "selection": {
+    "winner": "mobilenet_finetuned",
+    "criterion": "highest validation macro-F1; then lowest validation loss",
+    "test_used_for_selection": false
+  },
+  "majority_baseline": {
+    "class": "AnnualCrop",
+    "test_accuracy": 0.1111111111111111,
+    "test_macro_f1": 0.02
+  },
+  "exact_duplicates_removed": 0,
+  "source_results_zip_sha256": "b1851927b3622094b4ec30fbfc8c67f0740d39773562f40f09f71fa16ddb7235",
+  "source_executed_notebook_sha256": "b6f896facd17f7421817215019035974c15f21fb2c7f02e064d5d3def24de503",
+  "files": {
+    "comparison.csv": "One row per configuration; times are seconds, memory is peak allocated CUDA MiB.",
+    "history.csv": "Original epoch histories, combined using the name column.",
+    "predictions.csv.gz": "Original test predictions and probabilities; p_0 through p_9 follow plan.classes.",
+    "splits.csv.gz": "Original image IDs, labels, RGB pixel hashes and split assignments."
+  }
+}

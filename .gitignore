@@ -1,0 +1,10 @@
+data/
+eurosat-work/
+weights/
+*.pt
+*.pth
+*.zip
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+.DS_Store

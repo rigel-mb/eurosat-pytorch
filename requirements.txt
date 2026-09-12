@@ -1,0 +1,10 @@
+# Colab already provides these. Keep its matched torch/torchvision installation.
+# Local use: install the appropriate PyTorch pair for your CPU/CUDA first.
+# Exact versions of the measured run are exported by the notebook.
+torch>=2.6,<3
+torchvision>=0.21,<1
+numpy>=1.26,<3
+pandas>=2.2,<4
+scikit-learn>=1.5,<2
+matplotlib>=3.8,<4
+Pillow>=10,<13
