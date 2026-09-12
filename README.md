@@ -60,8 +60,9 @@ and training budget together; it does not isolate their individual effects.
 3. Choose a new `RUN_NAME`, run the cells in order and connect Drive when prompted.
 4. Download the results ZIP. Checkpoints stay in `MyDrive/eurosat-pytorch/<RUN_NAME>`.
 
-Completed experiments can be reused; an interrupted
-experiment restarts from epoch 1. Local use: install `requirements.txt` with the
+Completed experiments can be reused; an interrupted experiment restarts from epoch 1.
+After code edits, use a new `RUN_NAME` and update the manual `IMPLEMENTATION_VERSION` label;
+code changes are not detected automatically. Local use: install `requirements.txt` with the
 appropriate PyTorch build and set `SAVE_TO_DRIVE=False`.
 
 `results/` holds the recorded metrics, histories, predictions, split and exact
